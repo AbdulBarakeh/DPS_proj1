@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+  labels:
+    app: projfrontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: projfrontend
+  template:
+    metadata:
+      labels:
+        app: projfrontend
+    spec:
+      containers:
+      - name: projfrontend
+        image: abdulbarakeh/projfrontend
+        ports:
+        - containerPort: 80
